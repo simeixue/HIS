@@ -12,7 +12,61 @@ const routes: Array<RouteRecordRaw> = [
         name:'home',
         component: () =>
             import(/* webpackChunkName: "about" */ "../views/Home/Home.vue"),
-      }
+      },
+      {
+        path:'/mall',
+        name:'mall',
+        component: () =>
+            import(/* webpackChunkName: "about" */ "@/views/Mall/Mall.vue"),
+      },
+      {
+        path:'/cost',
+        name:'cost',
+        component:()=>
+            import("@/views/Cost/Cost.vue"),
+      },
+      {
+        path:'/clinic',
+        name:'clinic',
+        component:()=>
+            import("@/views/Clinic/Clinic.vue"),
+      },
+      {
+        path:'/pharmacy',
+        name:'pharmacy',
+        component:()=>
+            import("@/views/Pharmacy/Pharmacy.vue"),
+      },
+      {
+        path:'/finance',
+        name:'finance',
+        component:()=>
+            import("@/views/Finance/Finance.vue"),
+      },
+      {
+        path:'/arrange',
+        name:'arrange',
+        component:()=>
+            import("@/views/Arrange.vue"),
+      },
+      {
+        path:'/departmentManage',
+        name:'departmentManage',
+        component:()=>
+            import("@/views/DepartmentManage.vue"),
+      },
+      {
+        path:'/doctorManage',
+        name:'doctorManage',
+        component:()=>
+            import("@/views/DoctorManage.vue"),
+      },
+      {
+        path:'/userManage',
+        name:'userManage',
+        component:()=>
+            import("@/views/UserManage.vue"),
+      },
     ]
   },
   // {

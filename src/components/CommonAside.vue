@@ -74,6 +74,34 @@ export default defineComponent({
       handleClose,
       menu:[
         {
+          path:"/arrange",
+          name:"arrange",
+          label:"医生排班管理",
+          icon:"s-home",
+          url:"Arrange",
+        },
+        {
+          path:"/departmentManage",
+          name:"departmentManage",
+          label:"部门管理",
+          icon:"s-home",
+          url:"DepartmentManage",
+        },
+        {
+          path:"/doctorManage",
+          name:"doctorManage",
+          label:"医生管理",
+          icon:"s-home",
+          url:"DoctorManage",
+        },
+        {
+          path:"/userManage",
+          name:"userManage",
+          label:"用户管理",
+          icon:"s-home",
+          url:"UserManage",
+        },
+        {
           path:"/cost",
           name:"cost",
           label:"挂号收费站",
@@ -99,7 +127,7 @@ export default defineComponent({
           name:"finance",
           label:"综合财务部",
           icon:"s-home",
-          url:"finance/finance",
+          url:"Finance/Finance",
         },
         {
           label:"系统信息管理",
@@ -110,42 +138,42 @@ export default defineComponent({
               name:"page1",
               label:"用户管理",
               icon:"s-home",
-              url:"manage/Users",
+              url:"Manage/Users",
             },
             {
               path:"/page2",
               name:"page2",
               label:"科室管理",
               icon:"s-home",
-              url:"manage/PageTwo",
+              url:"Manage/PageTwo",
             },
             {
               path:"/page3",
               name:"page3",
               label:"挂号级别管理",
               icon:"s-home",
-              url:"manage/PageThree",
+              url:"Manage/PageThree",
             },
             {
               path:"/page4",
               name:"page4",
               label:"结算类别管理",
               icon:"s-home",
-              url:"manage/PageOne",
+              url:"Manage/PageOne",
             },
             {
               path:"/page5",
               name:"page5",
               label:"收费项目管理",
               icon:"s-home",
-              url:"manage/PageOne",
+              url:"Manage/PageOne",
             },
             {
               path:"/page6",
               name:"page6",
               label:"医生排班管理",
               icon:"s-home",
-              url:"manage/PageOne",
+              url:"Manage/PageOne",
             },
           ]
         }
@@ -158,11 +186,16 @@ export default defineComponent({
     },
     hasChildren(){
       return this.menu.filter((item)=>item.children)
-    }
+    },
+    // //折叠菜单
+    // isCollapse(){
+    //   return this.$store.state.tab.isCollapse;
+    // }
   },
   methods:{
     clickMenu(item){
-      this.$router.push({name:item.name});
+      this.$router.push(item.path);
+      this.$store.commit('selectMenu',item)
     },
   }
 })

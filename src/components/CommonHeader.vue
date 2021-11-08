@@ -1,8 +1,11 @@
 <template>
   <header>
-    <el-icon><icon-menu /></el-icon>
     <div class="l-content">
-      <h3>首页</h3>
+      <el-icon><icon-menu /></el-icon>
+      <el-breadcrumb :separator-icon="ArrowRight">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="current.path" v-if="current">{{current.path}}</el-breadcrumb-item>
+      </el-breadcrumb>
     </div>
     <div class="r-content">
       <el-dropdown>
@@ -23,7 +26,7 @@
 
 <script>
 import {Document, Location, Menu as IconMenu, Setting} from "@element-plus/icons";
-
+import {mapState} from 'vuex'
 export default {
   name: "CommonHeader",
 
@@ -35,6 +38,11 @@ export default {
   components: {
     IconMenu,
   },
+  computed:{
+    ...mapState({
+      current:state => state.tab.currentMenu
+    }),
+  }
 }
 </script>
 
